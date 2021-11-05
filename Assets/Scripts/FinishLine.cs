@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     [SerializeField] float loadNextDelay;
+    [SerializeField] ParticleSystem finishFX;
 
     void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.tag == "Player")
         {
+            finishFX.Play();
             Invoke("LoadNextLevel", loadNextDelay);
         } 
     }
