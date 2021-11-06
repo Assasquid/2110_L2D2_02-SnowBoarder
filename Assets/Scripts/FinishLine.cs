@@ -13,6 +13,7 @@ public class FinishLine : MonoBehaviour
         if(other.tag == "Player")
         {
             finishFX.Play();
+             GetComponent<AudioSource>().Play();
             Invoke("LoadNextLevel", loadNextDelay);
         } 
     }

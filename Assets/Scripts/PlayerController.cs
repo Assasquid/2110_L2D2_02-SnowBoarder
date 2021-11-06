@@ -9,6 +9,7 @@ Rigidbody2D rb2D;
 [SerializeField] float boostSpeed;
 [SerializeField] float baseSpeed;
 SurfaceEffector2D surfaceEffector2D;
+bool canMove = true;
 
     void Start()
     {
@@ -18,8 +19,16 @@ SurfaceEffector2D surfaceEffector2D;
 
     void Update()
     {
-        SpinPlayer();
-        RespondToBoost();
+        if(canMove)
+        {
+            SpinPlayer();
+            RespondToBoost();
+        }
+    }
+
+    public void DisableControls()
+    {
+        canMove = false;
     }
 
     void SpinPlayer()
